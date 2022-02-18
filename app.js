@@ -43,7 +43,6 @@ deleteAll.addEventListener('click', function () {
 
 
 //!!!!!!!!!!!!!! FUNCTIONS !!!!!!!!!
-
 function savedNumberSpan() {
     let saved =`(${counter}) - ` 
     savedNumber.innerHTML  += saved;
