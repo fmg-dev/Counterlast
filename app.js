@@ -1,37 +1,14 @@
 const counterNumber = document.getElementById('counter-number');
-const increaseBtn = document.getElementById('increase-button');
-const decreaseBtn = document.getElementById('decrease-button');
 const resetBtn = document.getElementById('reset-button');
-const increaseTenBtn = document.getElementById('increase-ten-button');
-const decreaseTenBtn = document.getElementById('decrease-ten-button');
 const deleteAll = document.getElementById('delete-all');
 const savedNumber = document.getElementById('saved-number');
+const setCounterButtons = document.querySelectorAll('.set-counter');
 let counter = 0;
 
-//!!!!!!!!!!!!!!!!!! BUTTONS !!!!!!!!!!!!!!!!!!!!!
-increaseBtn.addEventListener('click', function () {
-    counter += 1;
-    counterNumber.innerHTML = counter; 
-})
-
-decreaseBtn.addEventListener('click', function () {
-    counter -= 1;
-    counterNumber.innerHTML = counter; 
-})
-
+//!!!!!!!!!!!!!!!!!! BUTTONS !!!!!!!!!!!!!!!!!!!!!       
 resetBtn.addEventListener('click', function () {
-    savedNumberSpan()
+    savedNumberSpan();
     counter = 0;
-    counterNumber.innerHTML = counter;
-})
-
-increaseTenBtn.addEventListener('click', function () {
-    counter += 10;
-    counterNumber.innerHTML = counter;
-})
-
-decreaseTenBtn.addEventListener('click', function () {
-    counter -= 10;
     counterNumber.innerHTML = counter;
 })
 
@@ -41,11 +18,23 @@ deleteAll.addEventListener('click', function () {
     savedNumber.innerHTML = " ";
 })
 
-
 //!!!!!!!!!!!!!! FUNCTIONS !!!!!!!!!
 function savedNumberSpan() {
-    let saved =`(${counter}) - ` 
+    let saved =`(${counter}) - `;
     savedNumber.innerHTML  += saved;
     counterNumber.innerHTML = 0;
     counter = 0;
+}
+
+function setCounter(count) {
+    counter += parseInt(count);
+    counterNumber.innerHTML = counter;
+    console.log("asdg",count);
+}
+
+for (let i = 0; i < setCounterButtons.length; i++) {
+    setCounterButtons[i].addEventListener('click', function () {
+        const tempCount = this.getAttribute('data-count');
+        setCounter(tempCount);
+    })
 }
