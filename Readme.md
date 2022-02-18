@@ -1,1 +1,1 @@
-![til](./fmgCounter.mp4)
+![til](./fmgCounter.gif)
